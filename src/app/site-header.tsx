@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import MobileMenu from "./mobile-menu";
 
 const links = [
   { href: "/", label: "Home" },
@@ -29,10 +30,7 @@ export default function SiteHeader() {
         <nav className="desktop-nav" aria-label="Main navigation">
           {links.map((link) => <Link key={link.href} href={link.href} className={link.href === "/enroll" ? "nav-enroll" : undefined}>{link.label}</Link>)}
         </nav>
-        <details className="mobile-menu">
-          <summary>Menu <span aria-hidden="true">☰</span></summary>
-          <nav aria-label="Mobile navigation">{links.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}</nav>
-        </details>
+        <MobileMenu links={links} />
       </header>
     </>
   );
